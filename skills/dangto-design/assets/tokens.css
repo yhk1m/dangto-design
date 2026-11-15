@@ -1,0 +1,244 @@
+/* © 2026 김용현 */
+/*
+  한국 제품 UI 토큰
+  사용법
+    1. 이 파일을 프로젝트에 복사한다.
+    2. 테마색: 아래 "테마색" 블록의 값만 바꾼다. 나머지 강조 계열 색은 자동으로 계산된다.
+    3. 다이얼: <html data-density="compact"> 또는 <section data-density="compact">로 촘촘 모드,
+               data-personality="brand"로 브랜드 개성. 둘 다 없으면 편안 + 담백.
+    4. 다크 모드: 시스템 설정을 따르고, data-theme="light|dark"로 강제할 수 있다.
+       data-theme="dark"는 html뿐 아니라 화면 일부(section)에도 붙일 수 있다.
+    5. 상태색과 주색은 흰 바탕과 회색(gray-100) 바탕 모두에서 4.5:1을 넘는 값이다.
+  글꼴: Pretendard를 따로 불러온다.
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+*/
+
+:root {
+  /* ===== 테마색 (여기만 바꾼다) ===== */
+  --accent-light: #0e8063;       /* 주색, 라이트 */
+  --on-accent-light: #ffffff;    /* 주색 위 글자, 라이트 */
+  --accent-dark: #3fc79d;        /* 주색, 다크 (라이트보다 밝게) */
+  --on-accent-dark: #06231a;     /* 주색 위 글자, 다크 */
+  --second-base: #1f2a44;        /* 보조색 (선택): 머리 띠, 로고, 차트 둘째 계열. 버튼에 쓰지 않음 */
+  --third-base: #f2c94c;         /* 셋째 색 (선택): 배지, 일러스트, 홍보 띠. 버튼에 쓰지 않음 */
+  --on-third: #3a2c00;
+  /* 개나리처럼 밝은 주색이면 아래 줄의 주석을 풀어 강조 글자를 진한 글자로 둔다 */
+  /* --accent-text-override: var(--text-strong); */
+
+  /* ===== 회색 10단계 (남색 기운) ===== */
+  --gray-50: #f8f9fb;
+  --gray-100: #f1f3f6;
+  --gray-200: #e4e7ec;
+  --gray-300: #d0d5dd;
+  --gray-400: #a9b1bd;
+  --gray-500: #868f9c;
+  --gray-600: #646d7a;
+  --gray-700: #4a5260;
+  --gray-800: #2f3640;
+  --gray-900: #1a1e25;
+
+  /* ===== 역할 색, 라이트 ===== */
+  --bg: var(--gray-100);              /* 바탕 */
+  --surface: #ffffff;                 /* 흰 면 */
+  --surface-raised: #ffffff;          /* 떠 있는 면 (시트, 메뉴) */
+  --fill-subtle: var(--gray-100);     /* 회색 버튼, 선택한 줄 */
+  --text-strong: var(--gray-900);
+  --text: var(--gray-700);
+  --text-muted: var(--gray-600);      /* 보조 글. 흰 바탕 대비 5.2 */
+  --icon-muted: var(--gray-500);      /* 화살표, 빈 체크 같은 장식 아이콘. 글자에는 쓰지 않음 (대비 3.3) */
+  --text-disabled: var(--gray-400);
+  --line: rgba(16, 24, 40, 0.08);
+  --line-strong: rgba(16, 24, 40, 0.16);
+  --focus: #2a64d4;
+
+  --positive: #0b7a52;  --positive-weak: #e6f5ee;
+  --warning:  #a0560a;  --warning-weak:  #fdf1e3;
+  --critical: #c8293a;  --critical-weak: #fdecee;
+  --info:     #2a64d4;  --info-weak:     #eaf1fd;
+
+  --accent: var(--accent-light);
+  --on-accent: var(--on-accent-light);
+  --second: var(--second-base);
+  --third: var(--third-base);
+
+  /* ===== 글자 (편안 기본) ===== */
+  --font: "Pretendard", "Pretendard Variable", -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-display: var(--font);   /* 브랜드 개성에서만 바뀜 */
+  --fs-caption: 0.8125rem;  /* 13 */
+  --fs-small: 0.875rem;     /* 14 */
+  --fs-body: 1rem;          /* 16 */
+  --fs-body-lg: 1.0625rem;  /* 17 */
+  --fs-title-s: 1.25rem;    /* 20 */
+  --fs-title: 1.5rem;       /* 24 */
+  --fs-title-l: 1.875rem;   /* 30 */
+  --lh-body: 1.5;
+  --lh-title: 1.35;
+  --ls-title: -0.025em;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* ===== 크기 (편안) ===== */
+  --row-h: 3.5rem;          /* 목록 한 줄 56 */
+  --btn-h: 3.25rem;         /* 주요 버튼 52 */
+  --btn-h-s: 2.5rem;        /* 작은 버튼 40 */
+  --touch: 2.75rem;         /* 최소 터치 영역 44 */
+  --page-x: 1.25rem;        /* 화면 좌우 여백 20 */
+
+  /* ===== 간격 (4px 단위) ===== */
+  --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --sp-5: 1.25rem; --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem; --sp-12: 3rem; --sp-16: 4rem;
+
+  /* ===== 모서리 (작은 것일수록 작게) ===== */
+  --r-badge: 4px;
+  --r-control: 10px;   /* 버튼, 입력 칸 */
+  --r-card: 16px;
+  --r-sheet: 20px;     /* 바텀시트, 대화상자 */
+  --r-full: 999px;
+
+  /* ===== 그림자 (떠 있는 것에만) ===== */
+  --shadow-1: 0 1px 4px rgba(16, 24, 40, 0.06);
+  --shadow-2: 0 4px 16px rgba(16, 24, 40, 0.08);
+  --shadow-3: 0 12px 32px rgba(16, 24, 40, 0.12);
+
+  /* ===== 움직임 ===== */
+  --dur-fast: 150ms;
+  --dur: 250ms;
+  --dur-slow: 400ms;
+  --ease: cubic-bezier(0.35, 0, 0.35, 1);
+  --ease-enter: cubic-bezier(0, 0, 0.15, 1);
+  --ease-exit: cubic-bezier(0.35, 0, 1, 1);
+
+  color-scheme: light;
+}
+
+/* ===== 다크 모드 ===== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121418;
+    --surface: #1b1e24;
+    --surface-raised: #252930;
+    --fill-subtle: #252930;
+    --text-strong: #eef0f3;
+    --text: #c4cad3;
+    --text-muted: #8e97a4;
+    --icon-muted: #6b7380;
+    --text-disabled: #5d6571;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.16);
+    --focus: #7aa5ff;
+    --positive: #3ccf8e;  --positive-weak: #15302a;
+    --warning:  #f0a24a;  --warning-weak:  #33281a;
+    --critical: #ff6b74;  --critical-weak: #3a1f23;
+    --info:     #7aa5ff;  --info-weak:     #1d2840;
+    --accent: var(--accent-dark);
+    --on-accent: var(--on-accent-dark);
+    --second: color-mix(in oklch, var(--second-base) 70%, white);
+    --shadow-1: none; --shadow-2: none; --shadow-3: 0 12px 32px rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+  }
+}
+[data-theme="dark"] {
+  --bg: #121418;
+  --surface: #1b1e24;
+  --surface-raised: #252930;
+  --fill-subtle: #252930;
+  --text-strong: #eef0f3;
+  --text: #c4cad3;
+  --text-muted: #8e97a4;
+  --icon-muted: #6b7380;
+  --text-disabled: #5d6571;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --focus: #7aa5ff;
+  --positive: #3ccf8e;  --positive-weak: #15302a;
+  --warning:  #f0a24a;  --warning-weak:  #33281a;
+  --critical: #ff6b74;  --critical-weak: #3a1f23;
+  --info:     #7aa5ff;  --info-weak:     #1d2840;
+  --accent: var(--accent-dark);
+  --on-accent: var(--on-accent-dark);
+  --second: color-mix(in oklch, var(--second-base) 70%, white);
+  --shadow-1: none; --shadow-2: none; --shadow-3: 0 12px 32px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+
+/* ===== 자동 계산 (건드리지 않음) =====
+   :root와 data-theme가 붙은 요소마다 다시 계산되도록 따로 둔다. */
+:root, [data-theme] {
+  --accent-press: color-mix(in oklch, var(--accent) 86%, black);
+  --accent-weak: color-mix(in oklch, var(--accent) 10%, var(--surface));
+  --accent-weak-press: color-mix(in oklch, var(--accent) 18%, var(--surface));
+  --accent-text: var(--accent-text-override, color-mix(in oklch, var(--accent) 88%, var(--text-strong))); /* 연한 바탕 위 강조 글자 */
+  --third-weak: color-mix(in oklch, var(--third) 22%, var(--surface));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --accent-press: color-mix(in oklch, var(--accent) 85%, white); }
+}
+[data-theme="dark"] { --accent-press: color-mix(in oklch, var(--accent) 85%, white); }
+
+/* 화면 일부만 다크일 때 그 영역의 바탕과 글자색 */
+[data-theme] { background: var(--bg); color: var(--text-strong); }
+:root[data-theme] { background: none; }
+
+/* ===== 다이얼: 촘촘 ===== */
+[data-density="compact"] {
+  --fs-caption: 0.75rem;    /* 12 */
+  --fs-small: 0.8125rem;    /* 13 */
+  --fs-body: 0.875rem;      /* 14 */
+  --fs-body-lg: 0.875rem;
+  --fs-title-s: 1rem;       /* 16 */
+  --fs-title: 1.125rem;     /* 18 */
+  --fs-title-l: 1.375rem;   /* 22 */
+  --lh-body: 1.45;
+  --fw-medium: 400;
+  --fw-bold: 600;           /* 굵기 2종: 400, 600 */
+  --row-h: 2.375rem;        /* 38 */
+  --btn-h: 2.25rem;         /* 36 */
+  --btn-h-s: 2rem;          /* 32 */
+  --page-x: 1rem;
+  --r-control: 7px;
+  --r-card: 10px;
+  --r-sheet: 14px;
+}
+
+/* ===== 다이얼: 브랜드 ===== */
+[data-personality="brand"] {
+  /* 제목 서체 하나를 따로 불러와 여기에 넣는다. 본문 글꼴은 바꾸지 않는다. */
+  --font-display: "Gowun Batang", serif;
+}
+/* 모서리 성격: 각지게 */
+[data-personality="brand"][data-corner="square"] {
+  --r-badge: 0; --r-control: 0; --r-card: 0; --r-sheet: 0;
+}
+/* 모서리 성격: 둥글게 */
+[data-personality="brand"][data-corner="round"] {
+  --r-control: 999px; --r-card: 24px; --r-sheet: 28px;
+}
+
+/* ===== 기본 바탕 ===== */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-strong);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;           /* 한국어는 낱말 단위로 줄바꿈 */
+  overflow-wrap: anywhere;
+}
+h1, h2, h3 { font-family: var(--font-display); line-height: var(--lh-title); letter-spacing: var(--ls-title); margin: 0; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* 누르면 살짝 줄어듦 */
+.pressable { transition: transform var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease); }
+.pressable:active { transform: scale(0.97); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .pressable:active { transform: none; }
+}

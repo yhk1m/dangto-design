@@ -1,0 +1,11 @@
+{
+  "name": "dangto-design",
+  "owner": { "name": "yhk1m" },
+  "plugins": [
+    {
+      "name": "dangto-design",
+      "source": "./",
+      "description": "당근과 토스 중심의 한국 제품 UI 디자인 스킬"
+    }
+  ]
+}
