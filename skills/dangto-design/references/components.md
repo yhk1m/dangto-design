@@ -65,8 +65,8 @@ TDS 문서에는 AI가 읽기 좋은 부품 설명이 있다. 부품의 **구조
 ## 2-2. SEED 문서 보고 새로 짜기
 
 React가 아니거나, 관리 화면처럼 TDS에 맞는 부품이 없을 때는 SEED 문서를 같은 순서로 읽고 새로 짠다.
-- 디자인 규칙: `https://seed-design.io/components/llms.txt` (부품마다 구성, 속성, 가이드라인)
-- 상호작용 상태: `https://seed-design.io/llms/react/components/interaction-states.txt`
+- 디자인 규칙: `https://seed-design.io/components/llms.txt` (부품마다 `https://seed-design.io/llms/components/<이름>.txt`에 구성, 속성, 가이드라인)
+- 상호작용 상태: `https://seed-design.io/llms/react/components/concepts/interaction-states.txt`
 - SEED는 Apache-2.0이라 CSS 레시피(`@seed-design/css/recipes/*.css`)를 참고하거나 일부 가져와도 된다. 가져오면 파일 위에 출처와 라이선스(Apache-2.0)를 주석으로 남긴다.
 
 ## 3. SEED React (당근, Apache-2.0)
