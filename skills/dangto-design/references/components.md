@@ -6,20 +6,68 @@
 
 | 프로젝트 | 쓰는 것 | 이유 |
 |---|---|---|
-| 앱인토스(토스 앱 안의 미니앱) | **TDS Mobile** `@toss/tds-mobile` | 앱인토스용으로 제공되는 공식 부품 |
-| React 웹앱, 그 밖의 React 프로젝트 | **SEED React** `@seed-design/react` + `@seed-design/css` | Apache-2.0 공개 라이선스라 어디서나 쓸 수 있음 |
-| React가 아닌 프로젝트(HTML 한 장, 바닐라 JS, Vue, Svelte) | 라이브러리 없이 `assets/tokens.css` + `references/patterns.md` | SEED와 TDS는 React 전용. 대신 SEED 컴포넌트 문서의 크기, 상태, 구조를 보고 그대로 따라 만든다 |
+| 앱인토스(토스 앱 안의 미니앱) | **TDS Mobile 패키지** `@toss/tds-mobile` | 앱인토스용으로 제공되는 공식 부품 |
+| React 웹앱, 그 밖의 React 프로젝트 | **SEED React 패키지** `@seed-design/react` + `@seed-design/css`. SEED에 없는 부품(하단 고정 버튼, 큰 제목 머리 등)은 아래 **TDS 문서 보고 새로 짜기** | SEED는 Apache-2.0 공개 라이선스라 어디서나 쓸 수 있음 |
+| React가 아닌 프로젝트(HTML 한 장, 바닐라 JS, Vue, Svelte) | **TDS 문서 보고 새로 짜기**(소비자 화면, 편안 밀도) 또는 **SEED 문서 보고 새로 짜기**(관리 화면, 촘촘 밀도, TDS에 없는 부품). 값은 `assets/tokens.css` | 두 패키지 모두 React 전용 |
 
-- 한 프로젝트에 TDS와 SEED를 섞지 않는다.
+- 한 프로젝트에 TDS 패키지와 SEED 패키지를 함께 설치하지 않는다. (문서를 보고 새로 짜는 것은 섞어도 된다. 겉모양은 모두 tokens.css로 통일되기 때문이다.)
 - 프로젝트에 이미 쓰는 부품 라이브러리(shadcn/ui, MUI 등)가 있으면 그것을 유지하고, 겉모양만 이 스킬의 토큰으로 맞춘다. 사용자가 바꾸자고 할 때만 SEED로 옮긴다.
 
 ## 2. TDS Mobile (앱인토스 전용)
 
 - 문서: https://tossmini-docs.toss.im/tds-mobile/ (AI용 목록: https://tossmini-docs.toss.im/tds-mobile/llms.txt)
 - 설치: `npm install @toss/tds-mobile @emotion/react` (React 16.8~18)
-- **라이선스 주의:** npm 패키지에 공개 라이선스 표시가 없다. 앱인토스 미니앱을 만들 때만 설치한다. 그 밖의 프로젝트에서는 설치하지 않고, TDS 문서는 크기와 동작을 참고하는 용도로만 읽는다.
+- **라이선스 주의:** npm 패키지에 공개 라이선스 표시가 없다. 앱인토스 미니앱을 만들 때만 설치한다. 그 밖의 프로젝트에서는 설치하지 않고, 아래 2-1 방식으로 문서를 보고 새로 짠다.
 - 자주 쓰는 부품: Button, BottomCTA, ListRow, Top, TextField, Switch, BottomSheet, Toast, Dialog, Result, Skeleton
 - 쓰기 전에 그 부품의 문서 쪽을 열어 속성 이름을 확인한다. 기억으로 속성을 지어내지 않는다.
+
+## 2-1. TDS 문서 보고 새로 짜기 (앱인토스가 아닌 프로젝트)
+
+TDS 문서에는 AI가 읽기 좋은 부품 설명이 있다. 부품의 **구조와 동작은 문서대로, 코드는 직접 새로** 짠다.
+
+**문서 주소** (앞에 `https://tossmini-docs.toss.im`을 붙인다)
+| 부품 | 문서 |
+|---|---|
+| 전체 목록 | `/tds-mobile/llms.txt` |
+| 버튼 | `/tds-mobile/components/button/llm.txt` |
+| 글자 버튼 | `/tds-mobile/components/text-button/llm.txt` |
+| 하단 고정 버튼 | `/tds-mobile/components/BottomCTA/check-first/llm.txt`, `.../BottomCTA/Single/llm.txt`, `.../BottomCTA/Double/llm.txt`, `.../BottomCTA/fixed-bottom-cta/llm.txt` |
+| 목록 한 줄 | `/tds-mobile/components/ListRow/list-row-overview/llm.txt`, `.../ListRow/list-row-components/llm.txt` |
+| 묶음 제목 | `/tds-mobile/components/list-header/llm.txt` |
+| 화면 제목 머리 | `/tds-mobile/components/top/llm.txt` |
+| 입력 칸 | `/tds-mobile/components/TextField/text-field/llm.txt`, `.../TextField/text-area/llm.txt` |
+| 검색 칸 | `/tds-mobile/components/search-field/llm.txt` |
+| 스위치, 체크 | `/tds-mobile/components/switch/llm.txt`, `/tds-mobile/components/checkbox/llm.txt` |
+| 탭, 세그먼트 | `/tds-mobile/components/tab/llm.txt`, `/tds-mobile/components/segmented-control/llm.txt` |
+| 바텀시트 | `/tds-mobile/components/bottom-sheet/llm.txt` |
+| 대화상자 | `/tds-mobile/components/Dialog/dialog/llm.txt`, `.../Dialog/confirm-dialog/llm.txt`, `.../Dialog/alert-dialog/llm.txt` |
+| 토스트 | `/tds-mobile/components/toast/llm.txt` |
+| 결과, 빈 화면 | `/tds-mobile/components/result/llm.txt` |
+| 로딩 | `/tds-mobile/components/skeleton/llm.txt` |
+| 진행 표시 | `/tds-mobile/components/progress-bar/llm.txt`, `/tds-mobile/components/progress-stepper/llm.txt` |
+| 표 한 줄 | `/tds-mobile/components/table-row/llm.txt` |
+
+목록에 없는 부품은 전체 목록(`llms.txt`)에서 찾는다.
+
+**순서**
+1. 만들 부품의 문서를 읽는다. 기억으로 짐작하지 않는다.
+2. 문서에서 가져올 것: 구성(어떤 영역이 어디에 오는지), 크기 단계, 종류(채움과 연한 채움 등), 상태(누름, 비활성, 로딩), 동작(키보드 위로 붙기, 스크롤 시 그림자 등), 쓰는 때와 쓰지 않는 때.
+3. 값(색, 글자, 간격, 모서리)은 TDS 값이 아니라 `tokens.css`의 변수로 채운다.
+4. 코드는 프로젝트의 방식(HTML, React, Vue)대로 새로 짠다.
+5. 부품 위에 출처 주석을 한 줄 단다. 예: `/* 구조 참고: TDS Mobile BottomCTA 문서 */`
+
+**하지 않는 것**
+- TDS 패키지의 소스 코드, 이미지, 아이콘, 에셋을 복사하지 않는다.
+- 토스 전용 서체(Toss Product Sans)를 쓰지 않는다. Pretendard나 시스템 글꼴을 쓴다.
+- 토스 파랑(#3182f6)을 그대로 쓰지 않는다. 고른 테마색을 쓴다.
+- 클래스 이름, 화면 글, 파일 이름에 "toss", "tds"를 넣지 않는다. 토스 공식 화면처럼 보이게 하지 않기 위해서다.
+
+## 2-2. SEED 문서 보고 새로 짜기
+
+React가 아니거나, 관리 화면처럼 TDS에 맞는 부품이 없을 때는 SEED 문서를 같은 순서로 읽고 새로 짠다.
+- 디자인 규칙: `https://seed-design.io/components/llms.txt` (부품마다 구성, 속성, 가이드라인)
+- 상호작용 상태: `https://seed-design.io/llms/react/components/interaction-states.txt`
+- SEED는 Apache-2.0이라 CSS 레시피(`@seed-design/css/recipes/*.css`)를 참고하거나 일부 가져와도 된다. 가져오면 파일 위에 출처와 라이선스(Apache-2.0)를 주석으로 남긴다.
 
 ## 3. SEED React (당근, Apache-2.0)
 
