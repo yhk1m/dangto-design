@@ -110,6 +110,11 @@ skills/dangto-design/
   assets/tokens.css      바로 복사해 쓰는 CSS
 ```
 
+## 만든 사람
+
+양정고등학교 지리교사 김용현  
+문의: bgnlkim@gmail.com
+
 ## 라이선스
 
 MIT

@@ -1,6 +1,9 @@
 {
   "name": "dangto-design",
-  "owner": { "name": "yhk1m" },
+  "owner": {
+    "name": "양정고등학교 지리교사 김용현",
+    "email": "bgnlkim@gmail.com"
+  },
   "plugins": [
     {
       "name": "dangto-design",
