@@ -1,0 +1,175 @@
+<!-- © 2026 양정고등학교 지리교사 김용현 (bgnlkim@gmail.com) -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--accent:#0e8063;--on-accent:#fff;--accent-weak:color-mix(in oklch,var(--accent) 10%,#fff);--accent-text:color-mix(in oklch,var(--accent) 88%,#1a1e25);
+  --bg:#f1f3f6;--surface:#fff;--fill:#f1f3f6;--t1:#1a1e25;--t2:#4a5260;--t3:#646d7a;--icon:#868f9c;--line:rgba(16,24,40,.08);--warn:#a0560a}
+.dark{--accent:#3fc79d;--on-accent:#06231a;--accent-weak:color-mix(in oklch,#3fc79d 16%,#1b1e24);--accent-text:#3fc79d;
+  --bg:#121418;--surface:#1b1e24;--fill:#252930;--t1:#eef0f3;--t2:#c4cad3;--t3:#8e97a4;--icon:#6b7380;--line:rgba(255,255,255,.08);--warn:#f0a24a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:1000px;overflow:hidden;font-family:Pretendard,system-ui,sans-serif;background:#dfe2e7;-webkit-font-smoothing:antialiased;word-break:keep-all;
+  display:flex;justify-content:center;gap:56px;padding:40px 60px}
+.col{display:flex;flex-direction:column;gap:14px}
+.cap{font-size:16px;font-weight:600;color:#2f3640;padding-left:6px}
+.cap span{font-weight:500;color:#646d7a;margin-left:6px;font-size:14px}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.phone{width:390px;height:844px;border-radius:48px;overflow:hidden;position:relative;background:var(--surface);color:var(--t1);
+  box-shadow:0 0 0 10px #15181d,0 24px 60px rgba(0,0,0,.2);display:flex;flex-direction:column}
+.status{height:48px;display:flex;justify-content:space-between;align-items:center;padding:0 30px;font-size:15px;font-weight:600;flex:none}
+.nav{height:52px;display:flex;align-items:center;padding:0 12px;flex:none}
+.nav .b{width:44px;height:44px;display:grid;place-items:center;color:var(--t1)}
+.nav .t{font-size:17px;font-weight:600;margin-left:2px}
+.nav .r{margin-left:auto}
+.body{flex:1;padding:12px 20px 0;min-height:0}
+h1{font-size:26px;font-weight:700;letter-spacing:-.6px;line-height:1.35}
+.sub{font-size:15px;color:var(--t3);margin-top:6px}
+.chips{display:flex;gap:8px;margin-top:20px}
+.chip{height:38px;padding:0 14px;border-radius:999px;background:var(--fill);display:flex;align-items:center;font-size:15px;font-weight:500;color:var(--t2)}
+.chip.on{background:var(--t1);color:var(--surface);font-weight:600}
+/* 자리 배치 */
+.room{margin-top:20px;background:var(--fill);border-radius:20px;padding:16px 16px 14px}
+.room .rh{display:flex;justify-content:space-between;font-size:13px;color:var(--t3);font-weight:500}
+.room .rh b{color:var(--t1);font-weight:600}
+.win{height:6px;border-radius:3px;background:#cfe0ea;margin:12px 0 14px}
+.rows{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;align-items:center;gap:6px}
+.row .lb{width:18px;font-size:13px;font-weight:600;color:var(--t3)}
+.seat{width:38px;height:38px;border-radius:10px;background:var(--surface);box-shadow:inset 0 0 0 1.5px #d0d5dd;display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--t2)}
+.seat.x{background:#e4e7ec;box-shadow:none;color:#a9b1bd}
+.seat.on{background:var(--accent);box-shadow:none;color:var(--on-accent)}
+.seat.gap{visibility:hidden;width:14px}
+.legend{display:flex;gap:14px;margin-top:14px;font-size:13px;color:var(--t3)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:4px;background:var(--surface);box-shadow:inset 0 0 0 1.5px #d0d5dd}
+.legend i.x{background:#e4e7ec;box-shadow:none}.legend i.on{background:var(--accent);box-shadow:none}
+.pick{display:flex;align-items:center;gap:12px;margin-top:16px;padding:0 2px}
+.pick .ic{width:40px;height:40px;border-radius:50%;background:var(--accent-weak);color:var(--accent-text);display:grid;place-items:center}
+.pick .ic svg{width:20px;height:20px}
+.pick p{font-size:16px;font-weight:600}
+.pick span{font-size:14px;color:var(--t3)}
+.cta{padding:12px 20px 34px;flex:none}
+.btn{height:56px;border-radius:14px;background:var(--accent);color:var(--on-accent);font-size:17px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.btn2{display:flex;gap:8px}
+.btn2 div{flex:1;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600}
+.btn2 .g{background:var(--fill);color:var(--t1);flex:.7}
+.btn2 .p{background:var(--accent);color:var(--on-accent)}
+/* 시트 */
+.dim{position:absolute;inset:0;background:rgba(16,24,40,.42)}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:var(--surface);border-radius:24px 24px 0 0;padding:10px 20px 0}
+.handle{width:36px;height:4px;border-radius:2px;background:#d0d5dd;margin:0 auto 18px}
+.sheet h2{font-size:22px;font-weight:700;letter-spacing:-.4px;line-height:1.4}
+.sheet .sub{margin-top:4px}
+.dl{margin-top:20px;display:flex;flex-direction:column}
+.dl div{display:flex;justify-content:space-between;align-items:center;height:44px;font-size:16px}
+.dl dt{color:var(--t3)}.dl dd{font-weight:600;font-variant-numeric:tabular-nums}
+.note{display:flex;gap:10px;margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--fill);font-size:14px;line-height:1.55;color:var(--t2)}
+.note svg{width:18px;height:18px;color:var(--t3);margin-top:1px}
+.sheet .cta{padding:20px 0 34px}
+/* 내 자리 */
+.big{margin-top:18px;background:var(--fill);border-radius:20px;padding:20px}
+.big .k{font-size:14px;color:var(--t3);font-weight:500}
+.big .v{font-size:40px;font-weight:700;letter-spacing:-1px;margin-top:4px;font-variant-numeric:tabular-nums}
+.big .v span{font-size:18px;color:var(--t3);font-weight:500;margin-left:4px;letter-spacing:0}
+.bar{height:8px;border-radius:4px;background:var(--surface);margin-top:14px;overflow:hidden}
+.bar i{display:block;height:100%;width:22%;background:var(--accent);border-radius:4px}
+.big .ends{display:flex;justify-content:space-between;font-size:13px;color:var(--t3);margin-top:8px;font-variant-numeric:tabular-nums}
+.list{margin-top:8px}
+.li{display:flex;align-items:center;gap:14px;height:60px}
+.li .ic{width:40px;height:40px;border-radius:50%;background:var(--fill);display:grid;place-items:center;color:var(--t2)}
+.li .ic svg{width:20px;height:20px}
+.li .n{flex:1}.li .n p{font-size:16px;font-weight:600}.li .n span{font-size:14px;color:var(--t3)}
+.li>svg{width:18px;height:18px;color:var(--icon)}
+.sec{font-size:13px;font-weight:600;color:var(--t3);margin-top:22px}
+.tabbar{height:84px;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding-top:10px;flex:none}
+.tabbar div{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--t3);font-weight:500}
+.tabbar div.on{color:var(--t1);font-weight:600}
+</style>
+</head>
+<body>
+
+<!-- 1. 자리 고르기 -->
+<div class="col">
+  <div class="cap">1. 자리 고르기<span>한 화면에 질문 하나</span></div>
+  <div class="phone">
+    <div class="status"><span>4:21</span><span>5G</span></div>
+    <div class="nav"><div class="b"><svg class="i" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></div><span class="t">2층 열람실</span></div>
+    <div class="body">
+      <h1>어느 자리에<br>앉을까요?</h1>
+      <p class="sub">오늘 남은 자리 18개</p>
+      <div class="chips"><span class="chip on">4:30 ~ 6:00</span><span class="chip">6:00 ~ 7:30</span><span class="chip">7:30 ~ 9:00</span></div>
+      <div class="room">
+        <div class="rh"><span>창가</span><span>출입문은 <b>오른쪽 아래</b></span></div>
+        <div class="win"></div>
+        <div class="rows">
+          <div class="row"><span class="lb">A</span><span class="seat x">1</span><span class="seat x">2</span><span class="seat">3</span><span class="seat gap"></span><span class="seat x">4</span><span class="seat">5</span><span class="seat x">6</span></div>
+          <div class="row"><span class="lb">B</span><span class="seat">10</span><span class="seat x">11</span><span class="seat on">12</span><span class="seat gap"></span><span class="seat">13</span><span class="seat">14</span><span class="seat x">15</span></div>
+          <div class="row"><span class="lb">C</span><span class="seat">20</span><span class="seat">21</span><span class="seat x">22</span><span class="seat gap"></span><span class="seat">23</span><span class="seat x">24</span><span class="seat">25</span></div>
+          <div class="row"><span class="lb">D</span><span class="seat x">30</span><span class="seat">31</span><span class="seat">32</span><span class="seat gap"></span><span class="seat x">33</span><span class="seat">34</span><span class="seat">35</span></div>
+        </div>
+        <div class="legend"><span><i></i>빈자리</span><span><i class="x"></i>찬 자리</span><span><i class="on"></i>고른 자리</span></div>
+      </div>
+      <div class="pick"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <div><p>B-12, 창가 둘째 줄</p><span>콘센트가 있어요</span></div></div>
+    </div>
+    <div class="cta"><div class="btn">B-12 자리 맡기</div></div>
+  </div>
+</div>
+
+<!-- 2. 확인 시트 -->
+<div class="col">
+  <div class="cap">2. 맡기 전에 확인<span>누르기 전에 결과를 보여 줌</span></div>
+  <div class="phone">
+    <div class="status"><span>4:21</span><span>5G</span></div>
+    <div class="nav"><div class="b"><svg class="i" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></svg></div><span class="t">2층 열람실</span></div>
+    <div class="body"><h1>어느 자리에<br>앉을까요?</h1><p class="sub">오늘 남은 자리 18개</p></div>
+    <div class="dim"></div>
+    <div class="sheet">
+      <div class="handle"></div>
+      <h2>B-12 자리를 맡을까요?</h2>
+      <p class="sub">2층 열람실, 창가 둘째 줄</p>
+      <dl class="dl">
+        <div><dt>시간</dt><dd>오후 4:30 ~ 6:00</dd></div>
+        <div><dt>이용 시간</dt><dd>1시간 30분</dd></div>
+        <div><dt>이번 주 남은 횟수</dt><dd>3번 중 2번</dd></div>
+      </dl>
+      <div class="note"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>4시 40분까지 자리에서 도착 확인을 해 주세요. 그때까지 확인하지 않으면 다른 친구에게 자리가 넘어가요</div>
+      <div class="cta"><div class="btn2"><div class="g">닫기</div><div class="p">자리 맡기</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. 내 자리 (다크) -->
+<div class="col">
+  <div class="cap">3. 내 자리<span>다크 모드, 핵심 숫자 하나</span></div>
+  <div class="phone dark">
+    <div class="status"><span>4:41</span><span>5G</span></div>
+    <div class="nav"><span class="t" style="margin-left:8px;font-size:20px;font-weight:700">내 자리</span><div class="b r"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4"/></svg></div></div>
+    <div class="body">
+      <h1>B-12에서<br>공부하고 있어요</h1>
+      <p class="sub">2층 열람실, 4시 34분에 도착 확인함</p>
+      <div class="big">
+        <div class="k">남은 시간</div>
+        <div class="v">1시간 19분<span>/ 1시간 30분</span></div>
+        <div class="bar"><i style="width:88%"></i></div>
+        <div class="ends"><span>4:30</span><span>6:00</span></div>
+      </div>
+      <div class="sec">자리 관리</div>
+      <div class="list">
+        <div class="li"><div class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="n"><p>잠깐 자리 비우기</p><span>30분까지 자리를 지켜 줘요</span></div><svg class="i" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+        <div class="li"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg></div><div class="n"><p>일찍 나가기</p><span>남은 시간은 다른 친구가 쓸 수 있어요</span></div><svg class="i" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></div>
+      </div>
+    </div>
+    <div class="cta" style="padding-bottom:14px"><div class="btn">6:00 ~ 7:30도 이어서 쓰기</div></div>
+    <div class="tabbar">
+      <div><svg class="i" viewBox="0 0 24 24"><path d="M4 19V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v13M2 19h20M9 9h6M9 13h6"/></svg>자리 찾기</div>
+      <div class="on"><svg class="i" viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>내 자리</div>
+      <div><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>내 정보</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

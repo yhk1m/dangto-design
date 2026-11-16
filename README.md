@@ -4,7 +4,9 @@ AI 코딩 도구(Claude Code)가 화면을 만들 때 **당근과 토스처럼**
 
 목표는 "배우지 않아도 바로 쓰는 화면"입니다. 화려하게 꾸미는 대신 정보의 위계와 덜어내기로 완성도를 냅니다.
 
-![같은 관리 화면을 스킬 없이(왼쪽), 스킬로(오른쪽) 만든 비교](examples/before-after-admin.png)
+![가상의 도서관 자리 신청 앱: 자리 고르기, 맡기 전 확인, 내 자리(다크)](examples/library-seat.png)
+
+가상의 도서관 자리 신청 앱에 이 스킬을 적용한 예시입니다. 한 화면에 질문 하나, 누르기 전에 결과 보여 주기, 핵심 숫자 하나, 다크 모드를 보여 줍니다.
 
 ## 무엇이 들어 있나
 
@@ -15,10 +17,13 @@ AI 코딩 도구(Claude Code)가 화면을 만들 때 **당근과 토스처럼**
 - **부품은 TDS, SEED에서:** 앱인토스면 TDS Mobile, React면 SEED React(브랜드색은 고른 색으로 바꿈). 그 밖에서는 TDS와 SEED 문서를 읽고 구조와 동작을 그대로 따라 새로 짬(코드는 복사하지 않음)
 - **화면 패턴:** 목록 줄, 버튼 위계, 스위치, 대화상자, 토스트, 빈 화면, 오류, 로딩, 입력 양식, 관리 화면
 - **문구 규칙:** 해요체, 누른 결과를 말하는 버튼, 쉬운 말, 바꿔 쓰기 예시
+- **서체:** Pretendard 파일 4종 동봉(인터넷 없이도 사용), 브랜드 제목 서체 6종 목록, 디자인 요소용 리틱체 안내
 - **AI 티 금지 목록:** 같은 크기 숫자 카드 늘어놓기, 모든 줄에 "보기" 링크, 모든 줄에 색 태그 같은 습관
 - **완성 전 점검표:** 결과를 보여 주기 전에 스스로 확인합니다
 
 ![다이얼 조합 네 가지](examples/dials.png)
+
+![같은 관리 화면을 스킬 없이(왼쪽), 스킬로(오른쪽) 만든 비교](examples/before-after-admin.png)
 
 ## 설치
 
@@ -104,11 +109,21 @@ skills/dangto-design/
   references/tokens.md   색, 글자, 간격, 모서리, 그림자, 움직임 값
   references/accent.md   강조색 프리셋과 직접 넣은 색 검사법
   references/components.md TDS, SEED 부품 가져오기
+  references/fonts.md    서체 고르기와 불러오기
   references/patterns.md 화면 패턴
   references/writing.md  문구 규칙과 바꿔 쓰기 예시
   references/sources.md  근거와 출처
   assets/tokens.css      바로 복사해 쓰는 CSS
+  assets/fonts.css       Pretendard를 파일로 불러오는 CSS
+  assets/fonts/          Pretendard 4종과 라이선스(SIL OFL 1.1)
+  assets/examples/       적용 예시 그림과 코드
 ```
+
+## 서체 라이선스
+
+- **Pretendard:** Copyright (c) 2021 Kil Hyung-jin, SIL Open Font License 1.1. 파일과 라이선스를 `assets/fonts/`에 함께 넣었습니다.
+- **리틱체(REATIC):** 리틱인더스트리의 서체로, 라이선스상 재배포가 금지되어 이 저장소에는 넣지 않았습니다. 필요하면 [공식 페이지](https://www.reaticindustry.com/reaticfont)에서 직접 내려받으세요.
+- 브랜드 제목 서체 6종은 Google Fonts에서 불러옵니다(SIL OFL).
 
 ## 만든 사람
 

@@ -1,0 +1,10 @@
+/* © 2026 양정고등학교 지리교사 김용현 (bgnlkim@gmail.com) */
+/*
+  Pretendard를 스킬에 들어 있는 파일로 불러오기 (인터넷 없이)
+  fonts/ 폴더에 woff2 4개와 OFL-Pretendard.txt를 함께 복사한 뒤, tokens.css보다 먼저 불러온다.
+  Pretendard: Copyright (c) 2021, Kil Hyung-jin, SIL Open Font License 1.1
+*/
+@font-face { font-family: "Pretendard"; font-weight: 400; font-style: normal; font-display: swap; src: url("fonts/Pretendard-Regular.woff2") format("woff2"); }
+@font-face { font-family: "Pretendard"; font-weight: 500; font-style: normal; font-display: swap; src: url("fonts/Pretendard-Medium.woff2") format("woff2"); }
+@font-face { font-family: "Pretendard"; font-weight: 600; font-style: normal; font-display: swap; src: url("fonts/Pretendard-SemiBold.woff2") format("woff2"); }
+@font-face { font-family: "Pretendard"; font-weight: 700; font-style: normal; font-display: swap; src: url("fonts/Pretendard-Bold.woff2") format("woff2"); }
