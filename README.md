@@ -98,7 +98,6 @@ skills/dangto-design/
 
 - Pretendard: Copyright (c) 2021 Kil Hyung-jin, SIL Open Font License 1.1. 파일과 라이선스 전문을 `assets/fonts/`에 함께 넣었습니다.
 - 제목용 서체 6종: Google Fonts에서 불러오며 모두 SIL Open Font License입니다.
-- 리틱체(REATIC): 리틱인더스트리의 서체로, 재배포가 금지되어 있어 이 저장소에는 넣지 않았습니다. 필요하면 [공식 페이지](https://www.reaticindustry.com/reaticfont)에서 직접 내려받으세요.
 
 ## 만든 사람
 

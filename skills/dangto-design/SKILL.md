@@ -56,7 +56,7 @@ description: 당근과 토스를 중심으로 한국 제품 디자인 선도 회
 - 강조색은 밝게 올리고, 그 위 글자색은 대비를 다시 계산한다(밝은 강조색 위에는 어두운 글자).
 
 **글자**
-- Pretendard 또는 시스템 기본 글꼴. 굵기는 400, 500, 600, 700 중 쓰고, 촘촘 모드는 2종(400, 600)만. 인터넷이 막힌 곳이면 스킬에 든 Pretendard 파일을 쓴다. 브랜드 제목 서체와 리틱체는 `references/fonts.md`를 읽고 고른다.
+- Pretendard 또는 시스템 기본 글꼴. 굵기는 400, 500, 600, 700 중 쓰고, 촘촘 모드는 2종(400, 600)만. 인터넷이 막힌 곳이면 스킬에 든 Pretendard 파일을 쓴다. 브랜드 제목 서체는 `references/fonts.md`를 읽고 고른다.
 - 본문: 편안 16px, 촘촘 13~14px. 어떤 경우에도 12px 아래로 내리지 않는다.
 - 큰 제목은 자간을 음수로(-0.4px 안팎), 작은 글씨는 0.
 - 숫자가 줄 맞춰 바뀌는 곳(금액, 시각, 표)은 `font-variant-numeric: tabular-nums`.
@@ -166,7 +166,7 @@ description: 당근과 토스를 중심으로 한국 제품 디자인 선도 회
 | `references/tokens.md` | 색, 글자, 간격 같은 값을 정할 때 |
 | `references/accent.md` | 테마색을 고르거나 직접 받은 색을 검사할 때 |
 | `references/components.md` | TDS, SEED 부품을 설치하고 가져올 때 |
-| `references/fonts.md` | 서체 파일을 넣거나 브랜드 제목 서체, 리틱체를 고를 때 |
+| `references/fonts.md` | 서체 파일을 넣거나 브랜드 제목 서체를 고를 때 |
 | `references/patterns.md` | 목록, 버튼, 대화상자, 상태 화면, 관리 화면을 만들 때 |
 | `references/writing.md` | 화면 문구, 버튼 라벨, 오류 문구를 쓸 때 |
 | `references/sources.md` | 규칙의 근거를 설명해야 할 때 |
