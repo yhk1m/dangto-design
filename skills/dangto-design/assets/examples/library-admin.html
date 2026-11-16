@@ -1,0 +1,110 @@
+<!-- © 2026 양정고등학교 지리교사 김용현 (bgnlkim@gmail.com) -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+/* 당토 디자인 예시: 도서관 자리 관리 (사서용), 밀도 촘촘, 개성 담백, 주색 숲 */
+:root{--accent:#0e8063;--on-accent:#fff;--accent-weak:color-mix(in oklch,var(--accent) 10%,#fff);
+  --g50:#f8f9fb;--g100:#f1f3f6;--g200:#e4e7ec;--g300:#d0d5dd;--g400:#a9b1bd;--g500:#868f9c;--g600:#646d7a;--g700:#4a5260;--g900:#1a1e25;
+  --t1:var(--g900);--t2:var(--g700);--t3:var(--g600);--line:rgba(16,24,40,.08);--warn:#a0560a;--warn-weak:#fdf1e3;--crit:#c8293a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;overflow:hidden;font-family:Pretendard,system-ui,sans-serif;background:#dfe2e7;color:var(--t1);-webkit-font-smoothing:antialiased;word-break:keep-all;padding:40px 60px;display:flex;flex-direction:column;gap:14px}
+.cap{font-size:16px;font-weight:600;color:#2f3640}
+.cap span{font-weight:400;color:#4a5260;margin-left:8px;font-size:14px}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.win{flex:1;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.14);display:flex;flex-direction:column;font-size:14px}
+.bar{height:48px;display:flex;align-items:center;gap:28px;padding:0 20px;border-bottom:1px solid var(--line);flex:none}
+.word{font-size:15px;font-weight:600}
+.tabs{display:flex;gap:20px;height:100%}
+.tabs span{display:flex;align-items:center;color:var(--t3);position:relative}
+.tabs span.on{color:var(--t1);font-weight:600}
+.tabs span.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--t1)}
+.me{margin-left:auto;color:var(--t3)}
+.head{display:flex;align-items:center;gap:16px;padding:16px 20px;border-bottom:1px solid var(--line);flex:none}
+.head h1{font-size:18px;font-weight:600;letter-spacing:-.3px}
+.head .s{color:var(--t3)}
+.meter{margin-left:auto;display:flex;align-items:center;gap:10px;color:var(--t3);font-variant-numeric:tabular-nums}
+.meter i{display:block;width:160px;height:6px;border-radius:3px;background:var(--g200);position:relative;overflow:hidden}
+.meter i::before{content:"";position:absolute;inset:0;width:78%;background:var(--g700)}
+.split{flex:1;display:flex;min-height:0}
+.list{width:560px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.chips{display:flex;gap:6px;padding:12px 16px}
+.chip{height:30px;padding:0 12px;border-radius:7px;display:flex;align-items:center;color:var(--t3)}
+.chip.on{background:var(--g100);color:var(--t1);font-weight:600}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{height:32px;text-align:left;font-weight:400;color:var(--t3);font-size:12px;padding:0 16px;border-bottom:1px solid var(--line)}
+td{height:40px;padding:0 16px;border-bottom:1px solid var(--line)}
+td.n{font-weight:600}
+td.r,th.r{text-align:right}
+tr.sel td{background:var(--g100)}
+tr.sel td:first-child{box-shadow:inset 3px 0 0 var(--t1)}
+.warn{color:var(--warn);font-weight:600}
+.crit{color:var(--crit);font-weight:600}
+.mute{color:var(--t3)}
+.fold{display:flex;align-items:center;gap:6px;padding:0 16px;height:44px;color:var(--t3)}
+.fold svg{width:16px;height:16px}
+.det{flex:1;display:flex;flex-direction:column}
+.db{flex:1;padding:22px 28px}
+.db .k{font-size:12px;color:var(--t3);font-weight:600}
+.db h2{font-size:22px;font-weight:600;letter-spacing:-.4px;margin-top:4px}
+.db h2 span{font-size:14px;color:var(--t3);font-weight:400;margin-left:8px;letter-spacing:0}
+.state{display:flex;gap:10px;margin-top:16px;padding:12px 14px;border-radius:10px;background:var(--warn-weak);color:#6b3a06;line-height:1.55}
+.state svg{color:var(--warn);margin-top:2px}
+dl{display:grid;grid-template-columns:120px 1fr;row-gap:12px;margin-top:20px}
+dt{color:var(--t3)}
+dd{font-variant-numeric:tabular-nums}
+.tl{margin-top:24px}
+.tl h3{font-size:12px;color:var(--t3);font-weight:600;margin-bottom:10px}
+.tl ol{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tl li{display:grid;grid-template-columns:52px 1fr;color:var(--t2)}
+.tl li b{font-weight:600;color:var(--t1);font-variant-numeric:tabular-nums}
+.df{display:flex;align-items:center;gap:8px;padding:14px 28px;border-top:1px solid var(--line)}
+.df .hint{color:var(--t3);margin-right:auto}
+.b{height:36px;padding:0 14px;border-radius:8px;display:flex;align-items:center;font-weight:600}
+.b.s{background:var(--g100)}
+.b.p{background:var(--accent);color:var(--on-accent)}
+</style>
+</head>
+<body>
+<div class="cap">관리 화면 예시: 도서관 자리 관리 (사서용)<span>밀도 촘촘, 할 일 목록과 상세 두 칸, 숫자 카드 없이 한 문장과 막대 하나</span></div>
+<div class="win">
+  <div class="bar"><span class="word">양지고 도서관</span>
+    <div class="tabs"><span class="on">자리 관리</span><span>예약 기록</span><span>열람실 설정</span></div>
+    <span class="me">사서 박지윤</span></div>
+  <div class="head"><h1>2층 열람실, 오후 4:30 ~ 6:00</h1><span class="s">살펴볼 자리가 4개 있어요</span>
+    <div class="meter">앉은 자리 42 / 54<i></i></div></div>
+  <div class="split">
+    <div class="list">
+      <div class="chips"><span class="chip on">살펴볼 자리 4</span><span class="chip">전체 54</span><span class="chip">빈자리 12</span></div>
+      <table>
+        <tr><th>자리</th><th>학생</th><th>상태</th><th class="r">시각</th></tr>
+        <tr class="sel"><td class="n">B-07</td><td>2-4 정하람</td><td class="warn">비운 지 28분</td><td class="r">4:52</td></tr>
+        <tr><td class="n">C-21</td><td>1-1 문지호</td><td class="warn">도착 확인 안 함</td><td class="r">4:30</td></tr>
+        <tr><td class="n">A-05</td><td>3-2 한보은</td><td class="warn">도착 확인 안 함</td><td class="r">4:30</td></tr>
+        <tr><td class="n">D-34</td><td>2-1 안시우</td><td class="crit">신고 1건 (자리 맡아 두기)</td><td class="r">4:47</td></tr>
+      </table>
+      <div class="fold"><svg class="i" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg>문제없는 자리 38개</div>
+    </div>
+    <div class="det">
+      <div class="db">
+        <div class="k">선택한 자리</div>
+        <h2>B-07<span>2학년 4반 정하람</span></h2>
+        <div class="state"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          "잠깐 자리 비우기"를 누른 지 28분이 지났어요. 2분 뒤에도 돌아오지 않으면 자리가 자동으로 풀려요.</div>
+        <dl>
+          <dt>이용 시간</dt><dd>오후 4:30 ~ 6:00</dd>
+          <dt>이번 주 이용</dt><dd>3번 중 2번째</dd>
+          <dt>지난 기록</dt><dd>이번 학기 자동 해제 0번</dd>
+        </dl>
+        <div class="tl"><h3>오늘 기록</h3>
+          <ol><li><b>4:24</b>자리 맡음</li><li><b>4:31</b>도착 확인</li><li><b>4:52</b>잠깐 자리 비우기</li></ol></div>
+      </div>
+      <div class="df"><span class="hint">자동으로 풀리면 학생에게 알림이 가요</span>
+        <span class="b s">지금 자리 풀기</span><span class="b p">정하람에게 돌아오라고 알리기</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

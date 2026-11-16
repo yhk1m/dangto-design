@@ -1,0 +1,11 @@
+{
+  "name": "dangto-design",
+  "plugins": [
+    {
+      "name": "dangto-design",
+      "source": { "source": "local", "path": "./" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Design"
+    }
+  ]
+}
