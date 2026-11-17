@@ -126,7 +126,8 @@
     const rootCs = win.getComputedStyle(doc.documentElement);
     {
       if (!doc.querySelector('meta[name="color-scheme"]')) add('확인', '기본 부품', null, '<meta name="color-scheme" content="light dark"> 가 없음 (첫 화면, 스크롤바, 날짜 선택 창이 테마를 못 따를 수 있음)');
-      if (rootCs.scrollbarColor === 'auto' || !rootCs.scrollbarColor) add('확인', '스크롤바', null, '스크롤바 색이 정해지지 않음 (tokens.css의 브라우저 기본 부품 블록 확인)');
+      const hasDcWrap = !!doc.querySelector('.dc-content');
+      if (!hasDcWrap && (rootCs.scrollbarColor === 'auto' || !rootCs.scrollbarColor)) add('확인', '스크롤바', null, '스크롤바 색이 정해지지 않음 (tokens.css의 브라우저 기본 부품 블록 확인)');
     }
     const darkish = c => lum(c) < 0.2;
     for (const el of all) {
@@ -158,7 +159,8 @@
         if (el.scrollHeight <= el.clientHeight + 1 && el.scrollWidth <= el.clientWidth + 1) continue;
         if (!/dark/.test(cs.colorScheme) && (cs.scrollbarColor === 'auto' || !cs.scrollbarColor)) add('오류', '스크롤바', el, '다크 모드인데 스크롤바가 밝은 기본 모양');
       }
-      if (!/dark/.test(rootCs.colorScheme) && (rootCs.scrollbarColor === 'auto' || !rootCs.scrollbarColor)) add('오류', '스크롤바', null, '다크 모드인데 화면 스크롤바가 밝은 기본 모양 (:root에 color-scheme: dark 필요)');
+      const metaDark = /dark/.test((doc.querySelector('meta[name="color-scheme"]') || {}).content || '');
+      if (!metaDark && !/dark/.test(rootCs.colorScheme) && (rootCs.scrollbarColor === 'auto' || !rootCs.scrollbarColor)) add('오류', '스크롤바', null, '다크 모드인데 화면 스크롤바가 밝은 기본 모양 (:root에 color-scheme: dark 필요)');
     }
     // 8. 가로 넘침
     const sw = doc.documentElement.scrollWidth;
