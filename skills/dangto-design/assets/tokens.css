@@ -85,7 +85,12 @@
   --btn-h-s: 2.5rem;        /* 작은 버튼 40 */
   --touch: 2.75rem;         /* 최소 터치 영역 44 */
   --field-h: 2.75rem;       /* 입력 칸, 선택 상자 높이 44 */
-  --page-x: 1.25rem;        /* 화면 좌우 여백 20 */
+  --page-x: 1.25rem;        /* 화면 좌우 여백 20 (태블릿 세로 24, 가로 32) */
+  --header-h: 3.5rem;       /* 머리 막대 56 */
+  --tabbar-h: 3.5rem;       /* 아래 탭 막대 56 (안전 영역 따로 더함) */
+  --rail-w: 5rem;           /* 태블릿 가로 왼쪽 메뉴 막대 80 */
+  --content-max: 40rem;     /* 태블릿 이상 본문, 양식 최대 폭 640 */
+  --wide-max: 72rem;        /* 두 칸 화면 전체 최대 폭 1152 */
 
   /* ===== 간격 (4px 단위) ===== */
   --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
@@ -219,8 +224,36 @@
   --r-control: 999px; --r-card: 24px; --r-sheet: 28px;
 }
 
+/* ===== 휴대폰과 태블릿 (references/responsive.md) =====
+   구간: 휴대폰 744px 미만, 태블릿 세로 744~1023px, 태블릿 가로 1024px 이상.
+   배치는 폭으로, 누르는 영역은 입력 장치(pointer)로 정한다.
+   <head>에 넣는다: <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> */
+@media (min-width: 744px) {
+  :root { --page-x: 1.5rem; }
+  [data-density="compact"] { --page-x: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  :root { --page-x: 2rem; }
+  [data-density="compact"] { --page-x: 1.5rem; }
+}
+/* 손가락으로 쓰는 기기: 누르는 영역 48, 촘촘 화면도 40~44로 */
+@media (pointer: coarse) {
+  :root { --touch: 3rem; }
+  [data-density="compact"] { --row-h: 2.75rem; --btn-h: 2.5rem; --btn-h-s: 2.5rem; --field-h: 2.5rem; }
+}
+
 /* ===== 기본 바탕 ===== */
 *, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }   /* 가로로 눕힌 아이폰이 글자를 키우지 않게 */
+img, video, canvas, iframe, svg { max-width: 100%; }               /* 그림이 화면 밖으로 넘치지 않게 */
+img, video { height: auto; }
+/* 일부러 만드는 가로 스크롤 (표, 가로 카드 목록, 칩 줄). 화면 전체는 움직이지 않고 이 칸만 움직인다 */
+.scroll-x {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: var(--page-x);
+}
 body {
   margin: 0;
   font-family: var(--font);
@@ -297,6 +330,11 @@ select, textarea {
   padding: 0 var(--sp-3);
 }
 textarea { padding: var(--sp-3); min-height: 6rem; }
+/* 휴대폰에서 입력 칸 글자가 16px보다 작으면 아이폰이 누를 때마다 화면을 확대한다 */
+@media (max-width: 743px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
+  select, textarea { font-size: max(1rem, 16px); }
+}
 input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1; }
 input:focus-visible, select:focus-visible, textarea:focus-visible {
   outline: 2px solid var(--focus); outline-offset: 0; border-color: transparent;
