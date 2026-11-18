@@ -1,0 +1,154 @@
+<!-- © 2026 김용현 -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>메뉴 양식 예시</title>
+<link rel="stylesheet" href="../../skills/dangto-design/assets/fonts.css">
+<link rel="stylesheet" href="../../skills/dangto-design/assets/tokens.css">
+<link rel="stylesheet" href="gallery.css">
+<style>
+body { width: 1400px; }
+.today { display: flex; flex-direction: column; }
+.per { display: flex; align-items: center; gap: 14px; min-height: 56px; padding: 6px 16px; }
+.per .n { width: 28px; font-size: 14px; font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.per .tx { flex: 1; }
+.per .tx b { display: block; font-size: 16px; font-weight: 600; color: var(--text-strong); }
+.per .tx span { font-size: 14px; color: var(--text-muted); }
+.per.now { background: var(--accent-weak); border-radius: 12px; margin: 0 6px; padding-inline: 10px; }
+.per.now .n, .per.now .tx b { color: var(--accent-text); }
+.per .tag { font-size: 13px; font-weight: 600; color: var(--accent-text); }
+.meal { background: var(--surface); border-radius: var(--r-card); padding: 16px; font-size: 15px; line-height: 1.7; color: var(--text); }
+.meal b { color: var(--text-strong); font-size: 16px; display: block; margin-bottom: 4px; }
+/* 웹 도구 */
+.tool { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.tool div { background: var(--surface); border-radius: var(--r-card); padding: 16px; height: 108px; display: flex; flex-direction: column; justify-content: space-between; }
+.tool div .ic { width: 36px; height: 36px; border-radius: 10px; background: var(--accent-weak); color: var(--accent-text); display: grid; place-items: center; }
+.tool div .ic svg { width: 20px; height: 20px; }
+.tool b { font-size: 16px; font-weight: 600; color: var(--text-strong); }
+.recent { margin-top: 8px; }
+/* 서랍 */
+.scrim { position: absolute; inset: 0; background: rgba(16, 24, 40, .42); z-index: 2; }
+.drawer { position: absolute; top: 0; right: 0; bottom: 0; width: 320px; background: var(--surface-raised); border-radius: 20px 0 0 20px; z-index: 3; display: flex; flex-direction: column; padding: 46px 0 30px; }
+.drawer .dh { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px 6px 20px; }
+.drawer .who b { display: block; font-size: 17px; font-weight: 700; color: var(--text-strong); }
+.drawer .who span { font-size: 14px; color: var(--text-muted); }
+.drawer .b { width: 44px; height: 44px; display: grid; place-items: center; color: var(--text-strong); }
+.drawer .g { font-size: 13px; font-weight: 600; color: var(--text-muted); padding: 18px 20px 6px; }
+.drawer .mi { display: flex; align-items: center; gap: 14px; height: 52px; margin: 0 8px; padding: 0 12px; border-radius: 12px; font-size: 16px; color: var(--text-strong); }
+.drawer .mi svg { color: var(--text-muted); }
+.drawer .mi.on { background: var(--accent-weak); color: var(--accent-text); font-weight: 600; }
+.drawer .mi.on svg { color: var(--accent-text); }
+.drawer .foot { margin-top: auto; padding: 0 20px; font-size: 15px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="home" viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V20H4z"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+  <symbol id="bowl" viewBox="0 0 24 24"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.5 1-2 1-3.5M13 7c0-1.5 1-2 1-3.5"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.3-3.6 4.2-5.3 7.5-5.3s6.2 1.7 7.5 5.3"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="7.5"/><path d="M12 9v4l2.5 1.5M10 2.5h4"/></symbol>
+  <symbol id="dice" viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="15" height="15" rx="3"/><circle cx="9" cy="9" r=".8"/><circle cx="15" cy="15" r=".8"/><circle cx="15" cy="9" r=".8"/><circle cx="9" cy="15" r=".8"/></symbol>
+  <symbol id="group" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><circle cx="16.5" cy="10" r="2.5"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M15 14.6c2.4-.3 4.6.9 5.5 3.9"/></symbol>
+  <symbol id="vote" viewBox="0 0 24 24"><path d="M5 20h14M7 16l2-11h6l2 11"/><path d="M10 10l1.5 1.5L14 9"/></symbol>
+  <symbol id="seat" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></symbol>
+  <symbol id="board" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="2"/><path d="M8 20.5l4-4 4 4"/></symbol>
+  <symbol id="gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.2M12 18.3v2.2M20.5 12h-2.2M5.7 12H3.5M18 6l-1.6 1.6M7.6 16.4L6 18M18 18l-1.6-1.6M7.6 7.6L6 6"/></symbol>
+  <symbol id="help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9.8 9.5a2.3 2.3 0 0 1 4.4.8c0 1.6-2.2 2-2.2 3.4M12 16.8h.01"/></symbol>
+</svg>
+
+<div class="board">
+
+  <!-- 1. 아래 탭 막대 -->
+  <div class="col">
+    <div class="cap" style="--sw:#0e8063"><i class="dot"></i>주요 구역 4개<span>아래 탭 막대, 숲</span></div>
+    <div class="phone" data-theme="light" style="--accent:#0e8063;--on-accent:#fff">
+      <div class="status"><span>9:41</span><span>5G</span></div>
+      <div class="hd"><div class="logo">한빛고 생활</div><div class="r"><div class="b"><svg class="i"><use href="#bell"/></svg></div></div></div>
+      <div class="body">
+        <h1 class="h1">지금은 3교시예요</h1>
+        <p class="sub">11월 18일 화요일</p>
+        <div class="lbl">오늘 시간표</div>
+        <div class="grp today">
+          <div class="per"><span class="n">2</span><div class="tx"><b>수학</b><span>2-3 교실</span></div></div>
+          <div class="per now"><span class="n">3</span><div class="tx"><b>한국지리</b><span>지리실</span></div><span class="tag">지금</span></div>
+          <div class="per"><span class="n">4</span><div class="tx"><b>영어</b><span>2-3 교실</span></div></div>
+          <div class="per"><span class="n">5</span><div class="tx"><b>체육</b><span>운동장</span></div></div>
+        </div>
+        <div class="lbl">점심</div>
+        <div class="meal"><b>12시 20분부터</b>현미밥, 된장찌개, 닭갈비, 깍두기, 귤</div>
+      </div>
+      <div class="tabbar">
+        <div class="on"><svg class="i"><use href="#home"/></svg>홈</div>
+        <div><svg class="i"><use href="#cal"/></svg>시간표</div>
+        <div><svg class="i"><use href="#bowl"/></svg>급식</div>
+        <div><svg class="i"><use href="#user"/></svg>내 정보</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 햄버거 닫힘 -->
+  <div class="col">
+    <div class="cap" style="--sw:#2b63d9"><i class="dot"></i>메뉴 8개인 웹 도구<span>머리 막대 오른쪽 햄버거, 바다</span></div>
+    <div class="phone" data-theme="light" style="--accent:#2b63d9;--on-accent:#fff">
+      <div class="status"><span>9:41</span><span>5G</span></div>
+      <div class="hd line"><div class="logo">수업 도구</div><div class="r"><div class="b"><svg class="i"><use href="#menu"/></svg></div></div></div>
+      <div class="body">
+        <h1 class="h1" style="margin-top:12px">무엇을 할까요?</h1>
+        <p class="sub">자주 쓰는 도구를 앞에 모았어요.</p>
+        <div class="tool">
+          <div><span class="ic"><svg class="i"><use href="#timer"/></svg></span><b>타이머</b></div>
+          <div><span class="ic"><svg class="i"><use href="#dice"/></svg></span><b>발표자 뽑기</b></div>
+          <div><span class="ic"><svg class="i"><use href="#group"/></svg></span><b>모둠 나누기</b></div>
+          <div><span class="ic"><svg class="i"><use href="#vote"/></svg></span><b>투표</b></div>
+        </div>
+        <div class="lbl">최근에 쓴 것</div>
+        <div class="grp recent">
+          <div class="li"><div class="ic"><svg class="i"><use href="#group"/></svg></div><div class="tx"><b>2학년 3반 모둠</b><span>오늘 오전 10:05</span></div></div>
+          <div class="li"><div class="ic"><svg class="i"><use href="#timer"/></svg></div><div class="tx"><b>토론 타이머 5분</b><span>어제</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 서랍 열림 -->
+  <div class="col">
+    <div class="cap" style="--sw:#2b63d9"><i class="dot"></i>햄버거를 누르면<span>오른쪽 서랍, 지금 메뉴 표시</span></div>
+    <div class="phone" data-theme="light" style="--accent:#2b63d9;--on-accent:#fff">
+      <div class="status"><span>9:41</span><span>5G</span></div>
+      <div class="hd line"><div class="logo">수업 도구</div><div class="r"><div class="b"><svg class="i"><use href="#menu"/></svg></div></div></div>
+      <div class="body">
+        <h1 class="h1" style="margin-top:12px">무엇을 할까요?</h1>
+        <p class="sub">자주 쓰는 도구를 앞에 모았어요.</p>
+        <div class="tool">
+          <div><span class="ic"><svg class="i"><use href="#timer"/></svg></span><b>타이머</b></div>
+          <div><span class="ic"><svg class="i"><use href="#dice"/></svg></span><b>발표자 뽑기</b></div>
+          <div><span class="ic"><svg class="i"><use href="#group"/></svg></span><b>모둠 나누기</b></div>
+          <div><span class="ic"><svg class="i"><use href="#vote"/></svg></span><b>투표</b></div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="drawer">
+        <div class="dh"><div class="who"><b>김선생님</b><span>한빛고등학교</span></div><div class="b"><svg class="i"><use href="#x"/></svg></div></div>
+        <div class="g">수업 중에</div>
+        <div class="mi on"><svg class="i"><use href="#home"/></svg>처음 화면</div>
+        <div class="mi"><svg class="i"><use href="#timer"/></svg>타이머</div>
+        <div class="mi"><svg class="i"><use href="#dice"/></svg>발표자 뽑기</div>
+        <div class="mi"><svg class="i"><use href="#group"/></svg>모둠 나누기</div>
+        <div class="mi"><svg class="i"><use href="#vote"/></svg>투표</div>
+        <div class="g">수업 준비</div>
+        <div class="mi"><svg class="i"><use href="#seat"/></svg>자리 배치</div>
+        <div class="mi"><svg class="i"><use href="#board"/></svg>칠판 띄우기</div>
+        <div class="mi"><svg class="i"><use href="#gear"/></svg>설정</div>
+        <div class="foot">로그아웃</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

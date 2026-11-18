@@ -1,0 +1,142 @@
+<!-- © 2026 김용현 -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>휴대폰 예시 4종</title>
+<link rel="stylesheet" href="../../skills/dangto-design/assets/fonts.css">
+<link rel="stylesheet" href="../../skills/dangto-design/assets/tokens.css">
+<link rel="stylesheet" href="gallery.css">
+<style>
+body { width: 1840px; }
+.amt { font-size: 16px; font-weight: 600; color: var(--text-strong); font-variant-numeric: tabular-nums; }
+.amt.out { color: var(--text); font-weight: 500; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 1 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2.2 2.2 0 0 0 4 0"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></symbol>
+  <symbol id="bus" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="14" rx="3"/><path d="M5 11h14M8.5 20.5v-3M15.5 20.5v-3"/><circle cx="8.5" cy="14.3" r=".6"/><circle cx="15.5" cy="14.3" r=".6"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 4l2.4 5 5.4.6-4 3.7 1.1 5.3L12 16l-4.9 2.6 1.1-5.3-4-3.7 5.4-.6z"/></symbol>
+  <symbol id="route" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6.5a3.5 3.5 0 0 0 0-7h-5a3.5 3.5 0 0 1 0-7H16"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.5 20c1.3-3.6 4.2-5.3 7.5-5.3s6.2 1.7 7.5 5.3"/></symbol>
+  <symbol id="home" viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V20H4z"/><path d="M10 20v-5h4v5"/></symbol>
+  <symbol id="list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol>
+  <symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="shop" viewBox="0 0 24 24"><path d="M4 9h16l-1.2 10.5H5.2z"/><path d="M8.5 9V7a3.5 3.5 0 0 1 7 0v2"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><path d="M5 4.5h10.5a3 3 0 0 1 3 3V20H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10.5"/></symbol>
+  <symbol id="coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7.5v9M9.5 10a2.5 2 0 0 1 5 0c0 2.5-5 1.5-5 4a2.5 2 0 0 0 5 0"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 2"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l7-7"/></symbol>
+  <symbol id="swap" viewBox="0 0 24 24"><path d="M7 7h11l-3-3M17 17H6l3 3"/></symbol>
+</svg>
+
+<div class="board">
+
+  <!-- 1. 설정 화면, 노을, 라이트 -->
+  <div class="col">
+    <div class="cap" style="--sw:#c8470d"><i class="dot"></i>급식 알림 설정<span>설정 화면, 노을</span></div>
+    <div class="phone" data-theme="light" style="--accent:#c8470d;--on-accent:#fff">
+      <div class="status"><span>9:41</span><span>5G</span></div>
+      <div class="hd"><div class="b"><svg class="i"><use href="#back"/></svg></div><div class="t">알림 설정</div></div>
+      <div class="body">
+        <h1 class="h1">급식 알림</h1>
+        <p class="sub">켜면 바로 적용돼요.</p>
+        <div class="lbl">알림 받기</div>
+        <div class="grp">
+          <div class="li"><div class="ic a"><svg class="i"><use href="#bell"/></svg></div><div class="tx"><b>오늘 메뉴</b><span>점심 전에 메뉴를 알려 드려요</span></div><div class="sw on"></div></div>
+          <div class="li"><div class="ic"><svg class="i"><use href="#clock"/></svg></div><div class="tx"><b>받는 시각</b></div><div class="v">오전 11:30</div><svg class="i chev"><use href="#chev"/></svg></div>
+          <div class="li"><div class="ic a"><svg class="i"><use href="#leaf"/></svg></div><div class="tx"><b>알레르기 재료가 든 날</b><span>우유, 땅콩</span></div><div class="sw on"></div></div>
+          <div class="li"><div class="ic"><svg class="i"><use href="#swap"/></svg></div><div class="tx"><b>메뉴가 바뀐 날</b></div><div class="sw"></div></div>
+        </div>
+        <div class="lbl">내 정보</div>
+        <div class="grp">
+          <div class="li"><div class="tx"><b>알레르기 재료</b></div><div class="v">우유, 땅콩</div><svg class="i chev"><use href="#chev"/></svg></div>
+          <div class="li"><div class="tx"><b>학교</b></div><div class="v">한빛고등학교</div><svg class="i chev"><use href="#chev"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 입력 양식, 제비꽃, 라이트 -->
+  <div class="col">
+    <div class="cap" style="--sw:#6847d6"><i class="dot"></i>동아리 신청<span>입력 양식, 제비꽃</span></div>
+    <div class="phone" data-theme="light" style="--accent:#6847d6;--on-accent:#fff;background:var(--surface)">
+      <div class="status"><span>9:41</span><span>5G</span></div>
+      <div class="hd"><div class="b"><svg class="i"><use href="#back"/></svg></div><div class="t">동아리 신청</div></div>
+      <div class="body">
+        <div class="prog"><i style="width:66%"></i></div>
+        <div class="step"><span>동아리 고르기</span><span>2 / 3</span></div>
+        <h1 class="h1">어느 동아리에<br>들어갈까요?</h1>
+        <p class="sub">한 곳만 고를 수 있어요. 3월 15일까지 바꿀 수 있어요.</p>
+        <div class="opts">
+          <div class="opt on"><div class="tx"><b>지리 탐구반</b><span>목요일 7교시, 남은 자리 4</span></div><div class="ck"><svg class="i"><use href="#check"/></svg></div></div>
+          <div class="opt"><div class="tx"><b>사진반</b><span>화요일 7교시, 남은 자리 2</span></div><div class="ck"></div></div>
+          <div class="opt off"><div class="tx"><b>밴드부</b><span>자리가 다 찼어요</span></div><div class="ck"></div></div>
+          <div class="opt"><div class="tx"><b>코딩반</b><span>금요일 7교시, 남은 자리 7</span></div><div class="ck"></div></div>
+        </div>
+      </div>
+      <div class="cta"><div class="btn">지리 탐구반으로 신청하기</div></div>
+    </div>
+  </div>
+
+  <!-- 3. 빈 화면, 바다, 다크 -->
+  <div class="col">
+    <div class="cap" style="--sw:#2b63d9"><i class="dot"></i>통학 버스<span>빈 화면, 바다, 다크</span></div>
+    <div class="phone" data-theme="dark" style="--accent:#7aa2ff;--on-accent:#0b1a3d">
+      <div class="status"><span>9:41</span><span>5G</span></div>
+      <div class="hd"><div class="logo">통학 버스</div><div class="r"><div class="b"><svg class="i"><use href="#search"/></svg></div></div></div>
+      <div class="body">
+        <div class="chips"><div class="chip on">즐겨찾기</div><div class="chip">주변 정류장</div></div>
+        <div class="empty">
+          <div class="ic"><svg class="i"><use href="#star"/></svg></div>
+          <b>아직 저장한 정류장이 없어요</b>
+          <p>자주 타는 정류장을 저장하면<br>도착 시간을 여기서 바로 볼 수 있어요.</p>
+          <div class="btn weak sm">정류장 찾아보기</div>
+        </div>
+      </div>
+      <div class="tabbar">
+        <div class="on"><svg class="i"><use href="#bus"/></svg>정류장</div>
+        <div><svg class="i"><use href="#route"/></svg>노선</div>
+        <div><svg class="i"><use href="#user"/></svg>내 정보</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. 숫자 하나 + 목록, 개나리, 다크 -->
+  <div class="col">
+    <div class="cap" style="--sw:#f5c518"><i class="dot"></i>용돈 기록<span>요약과 목록, 개나리, 다크</span></div>
+    <div class="phone" data-theme="dark" style="--accent:#f5c518;--on-accent:#2a2200;--accent-text-override:var(--text-strong)">
+      <div class="status"><span>9:41</span><span>5G</span></div>
+      <div class="hd"><div class="logo">용돈 기록</div><div class="r"><div class="b"><svg class="i"><use href="#bell"/></svg></div></div></div>
+      <div class="body">
+        <div class="big">
+          <div class="k">11월에 남은 용돈</div>
+          <div class="v">23,500<span>원</span></div>
+          <div class="bar"><i style="width:47%"></i></div>
+          <div class="ends"><span>남은 돈 47%</span><span>받은 돈 50,000원</span></div>
+        </div>
+        <div style="margin-top:12px"><div class="btn">기록 추가하기</div></div>
+        <div class="lbl">최근 기록</div>
+        <div class="grp">
+          <div class="li"><div class="ic"><svg class="i"><use href="#shop"/></svg></div><div class="tx"><b>편의점</b><span>오늘 오후 4:12</span></div><div class="amt out">-3,200원</div></div>
+          <div class="li"><div class="ic"><svg class="i"><use href="#book"/></svg></div><div class="tx"><b>문제집</b><span>11월 16일</span></div><div class="amt out">-12,000원</div></div>
+          <div class="li"><div class="ic a"><svg class="i"><use href="#coin"/></svg></div><div class="tx"><b>용돈 받음</b><span>11월 1일</span></div><div class="amt">+50,000원</div></div>
+        </div>
+      </div>
+      <div class="tabbar">
+        <div class="on"><svg class="i"><use href="#home"/></svg>홈</div>
+        <div><svg class="i"><use href="#list"/></svg>기록</div>
+        <div><svg class="i"><use href="#target"/></svg>목표</div>
+        <div><svg class="i"><use href="#user"/></svg>내 정보</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

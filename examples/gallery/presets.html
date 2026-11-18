@@ -1,0 +1,80 @@
+<!-- © 2026 김용현 -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>테마색 프리셋 6가지</title>
+<link rel="stylesheet" href="../../skills/dangto-design/assets/fonts.css">
+<link rel="stylesheet" href="../../skills/dangto-design/assets/tokens.css">
+<link rel="stylesheet" href="gallery.css">
+<style>
+body { width: 1860px; padding-top: 32px; }
+.grid { display: grid; grid-template-columns: repeat(6, 273px); column-gap: 24px; row-gap: 22px; }
+.phone.mini { height: 600px; zoom: .7; box-shadow: 0 0 0 12px #15181d, 0 20px 50px rgba(0,0,0,.18); }
+.cap { padding-left: 2px; }
+.mini .body { padding-top: 4px; }
+.mini .h1 { font-size: 24px; }
+.mini .opts { margin-top: 18px; gap: 8px; }
+.mini .opt { min-height: 58px; }
+.alarm { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; padding: 0 4px; font-size: 15px; color: var(--text); }
+.mini .cta { padding-bottom: 24px; }
+.yellow .sw.on::after { background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232a2200' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 14px no-repeat; }
+/* 먹 다크는 주색이 밝은 회색이라 흰 손잡이가 묻힌다: 손잡이를 주색 위 글자색으로 */
+.ink[data-theme="dark"] .sw.on::after { background: var(--on-accent); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+</svg>
+<div class="grid" id="grid"></div>
+<template id="screen">
+  <div class="phone mini">
+    <div class="status"><span>9:41</span><span>5G</span></div>
+    <div class="hd"><div class="b"><svg class="i"><use href="#back"/></svg></div><div class="t">점심 투표</div></div>
+    <div class="body">
+      <h1 class="h1">금요일 특식으로<br>무엇이 좋을까요?</h1>
+      <p class="sub">목요일 오후 3시에 마감해요.</p>
+      <div class="opts">
+        <div class="opt on"><div class="tx"><b>떡볶이</b><span>지금 41표</span></div><div class="ck"><svg class="i"><use href="#check"/></svg></div></div>
+        <div class="opt"><div class="tx"><b>짜장면</b><span>지금 36표</span></div><div class="ck"></div></div>
+        <div class="opt"><div class="tx"><b>돈가스</b><span>지금 28표</span></div><div class="ck"></div></div>
+      </div>
+      <div class="alarm"><span>결과 알림 받기</span><div class="sw on"></div></div>
+    </div>
+    <div class="cta"><div class="btn">떡볶이에 투표하기</div></div>
+  </div>
+</template>
+<script>
+var presets = [
+  ['숲', '기본', '#0e8063', '#ffffff', '#3fc79d', '#06231a'],
+  ['바다', '', '#2b63d9', '#ffffff', '#7aa2ff', '#0b1a3d'],
+  ['제비꽃', '', '#6847d6', '#ffffff', '#a993ff', '#1c1240'],
+  ['노을', '', '#c8470d', '#ffffff', '#ff8a4c', '#2b1004'],
+  ['개나리', '강조 글자는 진하게', '#f5c518', '#2a2200', '#f5c518', '#2a2200'],
+  ['먹', '', '#22272f', '#ffffff', '#e8eaee', '#15181d']
+];
+var grid = document.getElementById('grid'), tpl = document.getElementById('screen');
+['light', 'dark'].forEach(function (mode) {
+  presets.forEach(function (p) {
+    var col = document.createElement('div'); col.className = 'col';
+    var cap = document.createElement('div'); cap.className = 'cap';
+    var acc = mode === 'light' ? p[2] : p[4], on = mode === 'light' ? p[3] : p[5];
+    cap.style.setProperty('--sw', acc);
+    var dot = document.createElement('i'); dot.className = 'dot'; cap.appendChild(dot);
+    cap.appendChild(document.createTextNode(p[0]));
+    var sp = document.createElement('span'); sp.textContent = (mode === 'light' ? '라이트 ' : '다크 ') + acc; cap.appendChild(sp);
+    var ph = tpl.content.firstElementChild.cloneNode(true);
+    ph.setAttribute('data-theme', mode);
+    ph.style.setProperty('--accent', acc);
+    ph.style.setProperty('--on-accent', on);
+    ph.style.background = 'var(--surface)';
+    if (p[0] === '개나리') { ph.style.setProperty('--accent-text-override', 'var(--text-strong)'); ph.classList.add('yellow'); }
+    if (p[0] === '먹') ph.classList.add('ink');
+    col.appendChild(cap); col.appendChild(ph); grid.appendChild(col);
+  });
+});
+</script>
+</body>
+</html>
