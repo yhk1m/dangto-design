@@ -20,6 +20,17 @@
 - **라이선스 주의:** npm 패키지에 공개 라이선스 표시가 없다. 앱인토스 미니앱을 만들 때만 설치한다. 그 밖의 프로젝트에서는 설치하지 않고, 아래 2-1 방식으로 문서를 보고 새로 짠다.
 - 자주 쓰는 부품: Button, BottomCTA, ListRow, Top, TextField, Switch, BottomSheet, Toast, Dialog, Result, Skeleton
 - 쓰기 전에 그 부품의 문서 쪽을 열어 속성 이름을 확인한다. 기억으로 속성을 지어내지 않는다.
+- 대화상자, 토스트, 바텀시트는 문서의 Overlay Extension 훅(`useDialog`, `useToast`, `useBottomSheet`)으로 띄운다.
+
+**앱인토스 미니앱이면 함께 지킬 것** (출처: https://developers-apps-in-toss.toss.im/design/consumer-ux-guide, 검수에서 떨어지는 항목 포함)
+- 화면 맨 위 내비게이션 바는 앱인토스가 주는 부품을 쓴다. 직접 그리지 않는다.
+- 아래 탭 막대는 필수가 아니다. 쓰면 토스가 주는 떠 있는 모양(floating) 탭 막대를 그대로 쓰고 탭은 2~5개. 토스 앱 아래 탭처럼 보이는 탭 막대를 직접 만들지 않는다(사용자가 지금 어디 있는지 헷갈린다).
+- 로고는 600x600px, 모서리 없는 정사각형, 라이트와 다크 양쪽에서 보이는 바탕. 서비스 이름은 한글로.
+- 다크 패턴은 검수 탈락이다: 들어오자마자 뜨는 광고나 알림 동의 시트, 뒤로 가기에 뜨는 시트, 거절할 수 없는 선택, 메뉴를 눌렀는데 뜨는 화면 전체 광고, 결과를 알 수 없는 하단 버튼. (이 스킬 금지 목록과 같다.)
+- 토스가 주는 아이콘과 그래픽은 화면 안에서만 쓴다. 로고, 썸네일에는 쓰지 않고, 앱인토스 밖으로 가져가지 않는다.
+- 피그마 UI Kit도 앱인토스 미니앱을 만들 때만 쓸 수 있다(라이선스: https://developers-apps-in-toss.toss.im/design/prepare/figma-ui-license). 시안 폭은 375px.
+- 앱인토스는 아직 다크 모드를 지원하지 않는다고 안내한다. 미니앱 시안은 라이트 모드로 만들고, 코드의 다크 모드 토큰은 그대로 둔다.
+- 게임 미니앱은 화면 전체를 채운다. 웹뷰 여백, 반투명 영역, 회전 시 비율 깨짐이나 위아래 검은 띠가 없어야 하고, 노치와 카메라 구멍은 안전 영역으로 피한다.
 
 ## 2-1. TDS 문서 보고 새로 짜기 (앱인토스가 아닌 프로젝트)
 
@@ -46,6 +57,17 @@ TDS 문서에는 AI가 읽기 좋은 부품 설명이 있다. 부품의 **구조
 | 로딩 | `/tds-mobile/components/skeleton/llm.txt` |
 | 진행 표시 | `/tds-mobile/components/progress-bar/llm.txt`, `/tds-mobile/components/progress-stepper/llm.txt` |
 | 표 한 줄 | `/tds-mobile/components/table-row/llm.txt` |
+| 대화상자 고르기(하나 버튼과 두 버튼) | `/tds-mobile/components/Dialog/dialog/llm.txt` |
+| 목록 아래 더 보기 | `/tds-mobile/components/list-footer/llm.txt` |
+| 화면 아래 안내 글 | `/tds-mobile/components/bottom-info/llm.txt` |
+| 메뉴 | `/tds-mobile/components/menu/llm.txt` |
+| 말풍선 도움말 | `/tds-mobile/components/tooltip/llm.txt` |
+| 슬라이더 | `/tds-mobile/components/slider/llm.txt` |
+| 수량 고르기(+, -) | `/tds-mobile/components/numeric-spinner/llm.txt` |
+| 별점 | `/tds-mobile/components/rating/llm.txt` |
+| 약관 동의 | `/tds-mobile/components/Agreement/v4/llm.txt` |
+| 숫자 자판 | `/tds-mobile/components/Keypad/number-keypad/llm.txt` |
+| 띄우는 방법(토스트, 시트, 대화상자) | `/tds-mobile/hooks/OverlayExtension/use-toast/llm.txt` 등 |
 
 목록에 없는 부품은 전체 목록(`llms.txt`)에서 찾는다.
 

@@ -24,6 +24,11 @@
 | 대비 4.5:1, 터치 44px | LINE, 쏘카, 당근, 29CM |
 | 버튼 위계 4단계, 하단 고정 버튼 | 토스, 쏘카, 원티드, LINE |
 | 대화상자 "닫기" | 토스 |
+| 다크 패턴 금지(진입 팝업, 뒤로 가기 시트, 결과를 알 수 없는 버튼) | 토스 앱인토스 UX 가이드 |
+| 문구 원칙의 예외, 명사 늘어놓기 금지 | 토스 앱인토스 UX 가이드 |
+| 그림은 한 화면에 하나, 장식 금지 | 토스 앱인토스 UX 가이드 |
+| 바텀시트와 대화상자는 바깥 누르기와 뒤로 가기로 닫힘 | TDS Mobile |
+| 토스트 3초, 버튼 있으면 5초 | TDS Mobile |
 | 토스트 한 번에 하나, 버튼 없음 | LINE, 원티드 |
 | 로딩 시간별 기준 | 당근, 원티드, 토스 |
 | 해요체, 과한 존칭 금지 | 토스, 당근 |
@@ -43,7 +48,10 @@
 - https://tossmini-docs.toss.im/tds-mobile/foundation/typography/
 - https://tossmini-docs.toss.im/tds-mobile/components/ListRow/list-row-overview/
 - https://tossmini-docs.toss.im/tds-mobile/components/BottomCTA/check-first/
-- https://developers-apps-in-toss.toss.im/design/consumer-ux-guide
+- https://developers-apps-in-toss.toss.im/design/consumer-ux-guide (2026-11-25 다시 대조: 다크 패턴, UX 라이팅 예외, 그래픽, 해상도)
+- https://developers-apps-in-toss.toss.im/design/prepare/design
+- https://developers-apps-in-toss.toss.im/design/prepare/figma-ui-license
+- https://tossmini-docs.toss.im/tds-mobile/llms.txt (2026-11-25 다시 대조: Button, BottomCTA, ListRow, Top, TextField, Tab, Switch, Checkbox, BottomSheet, Dialog, Toast, SegmentedControl, Result)
 - https://toss.tech/article/8-writing-principles-of-toss
 - https://toss.tech/article/introducing-toss-error-message-system
 
