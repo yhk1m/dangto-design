@@ -137,6 +137,7 @@
       if (el.matches('input') && ['hidden'].includes(type)) continue;
       if (el.matches('input[type=checkbox], input[type=radio], input[type=range], progress')) {
         if (cs.accentColor === 'auto') add('확인', '기본 부품', el, `${type} 색이 주색을 따르지 않음 (accent-color 없음)`);
+        if ((type === 'checkbox' || type === 'radio') && cs.appearance !== 'none' && visible(el, win)) add('확인', '공통 부품', el, `브라우저 기본 ${type === 'radio' ? '라디오' : el.getAttribute('role') === 'switch' ? '스위치' : '체크'} 모양 (assets/controls.css를 불러오면 SEED 모양으로 통일됨)`);
         if (mode === 'dark' && !/dark/.test(cs.colorScheme)) add('오류', '기본 부품', el, `다크 모드인데 ${type}가 밝은 기본 모양 (color-scheme: ${cs.colorScheme})`);
         continue;
       }
